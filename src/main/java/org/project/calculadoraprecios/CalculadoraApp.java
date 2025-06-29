@@ -12,7 +12,8 @@ public class CalculadoraApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(CalculadoraApp.class.getResource("calculadora-view.fxml"));
-        escenaPrincipal = new Scene(fxmlLoader.load(), 350, 400);
+        // Cargar el FXML y crear la escena principal con el tamaño deseado
+        escenaPrincipal = new Scene(fxmlLoader.load(), 400, 500);
 
         // Modo oscuro activado por defecto
         escenaPrincipal.getStylesheets().add(CalculadoraApp.class.getResource("dark-theme.css").toExternalForm());

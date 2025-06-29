@@ -3,6 +3,7 @@ package org.project.calculadoraprecios;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.project.calculadoraprecios.utils.Actualizador;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +26,7 @@ public class CalculadoraController {
     @FXML private CheckBox modoAutomatico;
     @FXML private Button botonCalcular;
     @FXML private ToggleButton toggleModoOscuro;
+    @FXML private Button btnInfoActualizaciones;
 
     private final ChangeListener<String> listenerPrecio = (obs, oldVal, newVal) -> calcular();
     private final ChangeListener<String> listenerDebito = (obs, oldVal, newVal) -> calcular();
@@ -58,6 +60,34 @@ public class CalculadoraController {
         precioBase.textProperty().removeListener(listenerPrecio);
         interesDebito.textProperty().removeListener(listenerDebito);
         interesCredito.textProperty().removeListener(listenerCredito);
+    }
+
+    @FXML
+    private void mostrarInfoActualizaciones() {
+        String versionActual = "1.2.0"; // o tomalo de una constante central si querés
+
+        String changelog = Actualizador.obtenerChangelog("/servidor/changelog.md");
+        String versionServidor = Actualizador.obtenerVersionServidor("/servidor/version.txt");
+
+        if (versionServidor == null) {
+            mostrarAlerta("Error", "No se pudo obtener la información de la versión.");
+            return;
+        }
+
+        if (versionServidor.equals(versionActual)) {
+            mostrarAlerta("Sin actualizaciones", "Estás usando la última versión.");
+        } else {
+            String cambios = Actualizador.obtenerCambiosDeVersion(changelog, versionServidor);
+            mostrarAlerta("Nueva versión disponible: " + versionServidor, cambios);
+        }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 
     @FXML

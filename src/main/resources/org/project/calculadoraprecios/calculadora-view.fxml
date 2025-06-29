@@ -55,4 +55,9 @@
         <Label text="Crédito:" />
         <TextField fx:id="resultadoCredito" editable="false" prefWidth="100" />
     </HBox>
+
+    <Button fx:id="btnInfoActualizaciones"
+            text="Info actualizaciones"
+            onAction="#mostrarInfoActualizaciones"/>
+
 </VBox>
