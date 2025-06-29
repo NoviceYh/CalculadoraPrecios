@@ -1,5 +1,8 @@
 # Release Version History
 
+### Versión 1.3.0
+- Se agrego boton para buscar actualizaciones
+
 ### Versión 1.2.0
 - Se agregó modo manual y automático
 - Fix: validación de errores en modo oscuro
