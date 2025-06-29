@@ -1,0 +1,48 @@
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #222;
+}
+
+.label {
+    -fx-text-fill: #222;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-text-fill: #222;
+    -fx-border-color: #ccc;
+}
+
+.button {
+    -fx-background-color: #dddddd;
+    -fx-text-fill: black;
+}
+
+.check-box {
+    -fx-text-fill: #222;
+}
+
+.error-label {
+    -fx-text-fill: #d32f2f; /* rojo oscuro */
+    -fx-font-weight: bold;
+}
+
+.modo-switch {
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 20;
+    -fx-padding: 5 15 5 15;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.2), 1, 0, 0, 1);
+    -fx-cursor: hand;
+    -fx-border-radius: 20;
+    -fx-border-color: transparent;
+    -fx-pref-height: 28;
+}
+
+.modo-switch:selected {
+    -fx-background-color: #00c853; /* verde activado */
+    -fx-text-fill: white;
+    -fx-alignment: center-right;
+}

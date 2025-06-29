@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.project.calculadoraprecios.CalculadoraController">
+
+    <ToggleButton fx:id="toggleModoOscuro"
+                  text="🌙 Modo oscuro"
+                  onAction="#cambiarTema"
+                  selected="true"
+                  styleClass="modo-switch" />
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <CheckBox fx:id="modoAutomatico" text="Modo automático" selected="true" onAction="#alternarModo" />
+
+    <Label text="CALCULADORA DE PRECIOS" style="-fx-font-weight: bold; -fx-font-size: 16;" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Interés Débito (%)" />
+        <TextField fx:id="interesDebito" prefWidth="80" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Interés Crédito (%)" />
+        <TextField fx:id="interesCredito" prefWidth="80" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Precio de venta" />
+        <TextField fx:id="precioBase" prefWidth="100" />
+    </HBox>
+
+    <Button fx:id="botonCalcular" text="CALCULAR" onAction="#calcular" visible="false" />
+
+    <Label fx:id="labelError"
+           text="Por favor, completá todos los campos correctamente"
+           styleClass="error-label"
+           visible="false" />
+
+    <Label text="Monto a cobrar" style="-fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Débito:" />
+        <TextField fx:id="resultadoDebito" editable="false" prefWidth="100" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Crédito:" />
+        <TextField fx:id="resultadoCredito" editable="false" prefWidth="100" />
+    </HBox>
+</VBox>
